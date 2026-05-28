@@ -1,15 +1,5 @@
- venv/
-.venv/
-env/
-.env
-
+venv/
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-
 db.sqlite3
-
-.DS_Store
-.AppleDouble
-.LSOverride
+.env
