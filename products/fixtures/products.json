@@ -1,0 +1,12 @@
+[
+  {"model": "products.category", "pk": 1, "fields": {"name": "Face Care", "slug": "face-care", "image": null, "parent": null, "is_active": true}},
+  {"model": "products.category", "pk": 2, "fields": {"name": "Body Care", "slug": "body-care", "image": null, "parent": null, "is_active": true}},
+  {"model": "products.category", "pk": 3, "fields": {"name": "Makeup", "slug": "makeup", "image": null, "parent": null, "is_active": true}},
+  {"model": "products.brand", "pk": 1, "fields": {"name": "L'Oreal", "slug": "loreal", "logo": null, "description": "French cosmetics brand"}},
+  {"model": "products.brand", "pk": 2, "fields": {"name": "Nivea", "slug": "nivea", "logo": null, "description": "German skincare brand"}},
+  {"model": "products.product", "pk": 1, "fields": {"name": "Hydrating Face Cream", "slug": "face-cream-hydro", "description": "24 hour intensive hydration", "price": "299.00", "discount_price": "249.00", "stock": 50, "image": null, "category": 1, "brand": 1, "created_at": "2026-01-01T00:00:00Z", "is_active": true}},
+  {"model": "products.product", "pk": 2, "fields": {"name": "Body Milk", "slug": "body-milk", "description": "Gentle milk for dry skin", "price": "199.00", "discount_price": null, "stock": 30, "image": null, "category": 2, "brand": 2, "created_at": "2026-01-01T00:00:00Z", "is_active": true}},
+  {"model": "products.product", "pk": 3, "fields": {"name": "Red Matte Lipstick", "slug": "lipstick-red-matte", "description": "Long-lasting matte lipstick", "price": "159.00", "discount_price": "129.00", "stock": 25, "image": null, "category": 3, "brand": 1, "created_at": "2026-01-01T00:00:00Z", "is_active": true}},
+  {"model": "products.product", "pk": 4, "fields": {"name": "Eye Contour Cream", "slug": "eye-contour-cream", "description": "Reduces dark circles and puffiness", "price": "349.00", "discount_price": null, "stock": 20, "image": null, "category": 1, "brand": 1, "created_at": "2026-01-01T00:00:00Z", "is_active": true}},
+  {"model": "products.product", "pk": 5, "fields": {"name": "Shower Gel", "slug": "shower-gel", "description": "Refreshing shower gel", "price": "149.00", "discount_price": "119.00", "stock": 60, "image": null, "category": 2, "brand": 2, "created_at": "2026-01-01T00:00:00Z", "is_active": true}}
+]
