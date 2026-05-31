@@ -1,6 +1,15 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Product, Category, Brand
+from django.http import Http404
+
+
+class StockCheckMixin:
+    def dispatch(self, request, *args, **kwargs):
+        product = get_object_or_404(Product, slug=kwargs.get('slug'))
+        if not product.is_available():
+            raise Http404("Product is not available")
+        return super().dispatch(request, *args, **kwargs)
 
 
 class ProductListView(ListView):
