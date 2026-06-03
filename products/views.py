@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Product, Category, Brand
 from django.http import Http404
+from django.db.models import Q, Count
+
+
+
+
 
 
 class StockCheckMixin:
@@ -73,5 +78,7 @@ class CategoryListView(ListView):
     context_object_name = 'categories'
 
     def get_queryset(self):
-        return Category.objects.filter(is_active=True)
+        return Category.objects.filter(is_active=True).annotate(
+            product_count=Count('products')
+        )
     
