@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Кошик</title>
+</head>
+<body>
+    <h1>Кошик</h1>
+
+    {% if cart_items %}
+        <table>
+            <tr>
+                <th>Товар</th>
+                <th>Кількість</th>
+                <th>Сума</th>
+            </tr>
+            {% for item in cart_items %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.subtotal }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <p><strong>Всього: {{ total }}</strong></p>
+        <a href="{% url 'clear_cart' %}">Очистити кошик</a>
+    {% else %}
+        <p>Кошик порожній</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Оформлення замовлення</title></head>
+<body>
+    <h1>Оформлення замовлення</h1>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <label>Телефон:</label>
+        <input type="text" name="phone" required><br><br>
+        
+        <label>Адреса:</label>
+        <input type="text" name="address" required><br><br>
+        
+        <button type="submit">Оформити замовлення</button>
+    </form>
+</body>
+</html>

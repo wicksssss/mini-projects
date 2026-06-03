@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Замовлення №{{ order.id }}</title></head>
+<body>
+    <h1>Замовлення №{{ order.id }}</h1>
+    
+    <p>Статус: {{ order.status }}</p>
+    <p>Телефон: {{ order.phone }}</p>
+    <p>Адреса: {{ order.address }}</p>
+    <p>Дата: {{ order.created_at }}</p>
+    
+    <h2>Товари:</h2>
+    {% for item in order.items.all %}
+        <p>{{ item.product.name }} — {{ item.quantity }} шт. × {{ item.price }} грн</p>
+    {% endfor %}
+    
+    <p><strong>Всього: {{ order.total_price }} грн</strong></p>
+    
+    <a href="/orders/">← Назад до замовлень</a>
+</body>
+</html>

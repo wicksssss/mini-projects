@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профіль</title>
+</head>
+<body>
+    <h1>Профіль</h1>
+    <p>Імʼя: {{ request.user.username }}</p>
+    <p>Email: {{ request.user.email }}</p>
+    <a href="{% url 'change_password' %}">Змінити пароль</a><br>
+    <a href="{% url 'logout' %}">Вийти</a><br>
+    <a href="{% url 'cart' %}">Кошик</a>
+</body>
+</html>
