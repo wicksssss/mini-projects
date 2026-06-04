@@ -81,4 +81,48 @@ class CategoryListView(ListView):
         return Category.objects.filter(is_active=True).annotate(
             product_count=Count('products')
         )
+def search_view(request):
+    query = request.GET.get('q', '')
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    sort = request.GET.get('sort')
+
+    products = Product.objects.filter(is_active=True)
+
+    if query:
+        products = products.filter(
+            Q(name__icontains=query) |
+            Q(description__icontains=query)
+        )
+
+    if min_price:
+        try:
+            products = products.filter(price__gte=float(min_price))
+        except ValueError:
+            pass
+
+    if max_price:
+        try:
+            products = products.filter(price__lte=float(max_price))
+        except ValueError:
+            pass
+
+    sort_map = {
+        'price_asc': 'price',
+        'price_desc': '-price',
+        'new': '-created_at',
+    }
+    if sort in sort_map:
+        products = products.order_by(sort_map[sort])
+
+    from django.core.paginator import Paginator
+    paginator = Paginator(products, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'products/search.html', {
+        'products': page_obj,
+        'query': query,
+        'page_obj': page_obj,
+    })
     
