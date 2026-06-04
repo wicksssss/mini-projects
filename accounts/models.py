@@ -5,21 +5,13 @@ from django.dispatch import receiver
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE,
-        related_name='profile'
-    )
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     phone = models.CharField(max_length=20, blank=True)
     avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
-    default_address = models.CharField(max_length=500, blank=True)
-
-    class Meta:
-        verbose_name = 'User Profile'
-        verbose_name_plural = 'User Profiles'
+    default_address = models.TextField(blank=True)
 
     def __str__(self):
-        return f'Profile of {self.user.username}'
+        return f'Профіль {self.user.username}'
 
 
 @receiver(post_save, sender=User)
