@@ -16,8 +16,8 @@ class Category(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = 'Категорія'
-        verbose_name_plural = 'Категорії'
+        verbose_name = 'Category'
+        verbose_name_plural = 'Categories'
 
     def __str__(self):
         return self.name
@@ -30,8 +30,8 @@ class Brand(models.Model):
     description = models.TextField(blank=True)
 
     class Meta:
-        verbose_name = 'Бренд'
-        verbose_name_plural = 'Бренди'
+        verbose_name = 'Brand'
+        verbose_name_plural = 'Brands'
 
     def __str__(self):
         return self.name
@@ -65,8 +65,8 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
 
     class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Товари'
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
 
     def __str__(self):
         return self.name
@@ -90,10 +90,9 @@ class ProductImage(models.Model):
     image = models.ImageField(upload_to='products/gallery/')
 
     class Meta:
-        verbose_name = 'Фото товару'
-        verbose_name_plural = 'Фото товарів'
+        verbose_name = 'Product Image'
+        verbose_name_plural = 'Product Images'
 
     def __str__(self):
-        return f'Фото для {self.product.name}'
-
-# Create your models here.
+        return f'Photo for {self.product.name}'
+    
