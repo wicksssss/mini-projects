@@ -37,7 +37,14 @@ class Brand(models.Model):
         return self.name
 
 
+class ProductManager(models.Manager):
+    def active(self):
+        return self.filter(is_active=True, stock__gt=0)
+
+
 class Product(models.Model):
+    objects = ProductManager()
+
     name = models.CharField(max_length=300)
     slug = models.SlugField(unique=True)
     description = models.TextField(blank=True)
